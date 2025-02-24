@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Efteling';
+    src: url('images/Efteling-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Efteling', sans-serif;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.question {
+    text-align: center;
+    font-size: 6vh;
+}
+
+.lang-title {
+    font-size: 300%;  /* Reduce font size */
+    line-height: 0.1;  /* Keep enough space between lines */
+    text-align: center;
+    width: 100%;
+    overflow-wrap: break-word; 
+    height: 10%;
+    justify-content: center;
+    transform: translateY(200%);
+}
+#lang-english {
+    background-image: url('https://flagcdn.com/w320/gb.png');
+}
+
+#lang-dutch {
+    background-image: url('https://flagcdn.com/w320/nl.png');
+}
+
+
+.lang-buttons {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    gap: 20px;  /* Space between buttons */
+    margin-top: 30vh;  /* Add space above */
+}
+
+.lang-btn {
+    width: 100px; /* Adjust size as needed */
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.2s ease-in-out; 
+}
+.lang-btn.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+.language {
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10vh;
+
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Background stuff */
+.language::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: url('images/dm_background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(2px);
+    
+    z-index: -1;
+}
+
+.map {
+    text-align: center;
+}
