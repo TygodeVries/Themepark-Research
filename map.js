@@ -3,38 +3,52 @@ var pin;
 
 function createSketch(canvasId, bgColor) {
     return function (p) {
+        
+        
+        lastTouchPoint = {set: false, x: 0, y: 0};
         p.camera = { x: 2000, y: 2000, zoom: 0.3 };
         p.mouseOverCanvas = false;
         let isDragging = false;
         let touchStartDist = 0;
-        let canvasFocused = false; // Track if the canvas is active
+        let canvasFocused = false;
+        let startCameraX = 0;
+        let startCameraY = 0;
+        let startMouseX = 0;
+        let startMouseY = 0;
 
         p.setup = function () {
             let canvas = p.createCanvas(800, 600);
             canvas.parent(canvasId);
-            if(img == null)
-            {
-                console.log("Loading map...")
+            if (img == null) {
+                console.log("Loading map...");
                 img = p.loadImage('./images/efteling_map_cut.jpg');
             }
             pin = p.loadImage('./images/pin.png');
 
-            // Detect if the user is focusing on the canvas
             canvas.mouseOver(() => p.mouseOverCanvas = true);
             canvas.mouseOut(() => p.mouseOverCanvas = false);
-            canvas.touchStarted(() => canvasFocused = true);
+            canvas.touchStarted(() => {
+                canvasFocused = true;
+                console.log("Start");
+            });
             canvas.touchEnded(() => canvasFocused = false);
         };
 
         p.mousePressed = function () {
-            isDragging = false;
+            if (p.mouseOverCanvas) {
+                isDragging = false;
+                startCameraX = p.camera.x;
+                startCameraY = p.camera.y;
+                startMouseX = p.mouseX;
+                startMouseY = p.mouseY;
+            }
         };
 
         p.mouseDragged = function () {
             if (p.mouseOverCanvas) {
                 let scaleFactor = 1 / p.camera.zoom;
-                p.camera.x -= p.movedX * scaleFactor;
-                p.camera.y -= p.movedY * scaleFactor;
+                p.camera.x = startCameraX - (p.mouseX - startMouseX) * scaleFactor;
+                p.camera.y = startCameraY - (p.mouseY - startMouseY) * scaleFactor;
                 isDragging = true;
             }
         };
@@ -53,23 +67,43 @@ function createSketch(canvasId, bgColor) {
         };
 
         p.touchStarted = function () {
-            if (!canvasFocused) return; // Ignore if canvas isn't active
+        
+            if (!canvasFocused) return;
+            
+            lastTouchPoint.x = p.touches[0].x;
+            lastTouchPoint.y = p.touches[0].y;
             if (p.touches.length === 2) {
                 touchStartDist = getTouchDist(p.touches);
             }
         };
 
         p.touchMoved = function () {
-            if (!canvasFocused) return true; // Allow normal page scrolling
-
+            if (!canvasFocused) return true;
+            
+            console.log("e");
             if (p.touches.length === 1) {
+                console.log("Move")
                 let scaleFactor = 1 / p.camera.zoom;
-                p.camera.x -= (p.touches[0].movementX || 0) * scaleFactor;
-                p.camera.y -= (p.touches[0].movementY || 0) * scaleFactor;
+
+                if(!lastTouchPoint.set)
+                {
+                    lastTouchPoint.x = p.touches[0].x;
+                    lastTouchPoint.y = p.touches[0].y;
+                    lastTouchPoint.set = true;
+                }
+
+                p.camera.x += (lastTouchPoint.x - p.touches[0].x) * scaleFactor;
+                p.camera.y += (lastTouchPoint.y - p.touches[0].y) * scaleFactor;
+
+console.log(p.camera);
+
+                lastTouchPoint.x = p.touches[0].x;
+                lastTouchPoint.y = p.touches[0].y;
+
             } else if (p.touches.length === 2) {
                 let newDist = getTouchDist(p.touches);
                 let delta = newDist - touchStartDist;
-                zoom(-delta * 5, (p.touches[0].x + p.touches[1].x) / 2, (p.touches[0].y + p.touches[1].y) / 2);
+                zoom(delta * 5, (p.touches[0].x + p.touches[1].x) / 2, (p.touches[0].y + p.touches[1].y) / 2);
                 touchStartDist = newDist;
             }
             return false;
