@@ -45,3 +45,29 @@
     margin-top: 10px;
     display: block;
 }
+
+.efteling-button {
+    font-family: 'Garamond', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(180deg, #8B0000, #B22222); /* Deep red gradient */
+    border: 3px solid gold;
+    border-radius: 12px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.efteling-button:hover {
+    background: linear-gradient(180deg, #B22222, #D2691E); /* Lighter glow */
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 215, 0, 0.6);
+}
+
+.efteling-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
+}

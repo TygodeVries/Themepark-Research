@@ -4,18 +4,19 @@
 </head>
 
 <body>
+
 <!-- Load p5.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
 <script src="./map.js"></script>
 <script src="./lang.js"></script>
 <script src="./submit.js"></script>
 <div class="language">
-    <div class="lang-title">
+    <div class="lang-title" id="lang-title">
         <p>Kies je taal</p>
-        <p>Pick your language</p>
+        <p>Pick your language</p>        
     </div>
 
-    <div class="lang-buttons">
+    <div class="lang-buttons" id="lang-buttons">
         <button id="lang-english" class="lang-btn" data-lang="en"></button>
         <button id="lang-dutch" class="lang-btn" data-lang="nl"></button>
     </div>
@@ -31,7 +32,7 @@
     </div>
 </div>
 
-<div class="questions">
+<div class="questions" id="questions">
     <div id="text-header-you" class="section"></div>
         <div id="text-question-you-age" class="question">Loading...</div>
         <div class="slider-container">
@@ -47,11 +48,21 @@
         
 
     <div id="text-question-map-best" class="question">Loading...</div>
-    <div id="canvas1" class="map"></div>
+    <div id="canvas1" class="map">
+    </div>
+    <button class="efteling-button" onclick="ZoomIn(1)">+</button>
+    <button class="efteling-button" onclick="ZoomOut(1)">-</button>
+    
     <div id="text-question-map-worst" class="question">Loading...</div>
-    <div id="canvas2" class="map"></div>
-    <input type="text">
-    <button submit onclick="submit()">Submit</button>
+    <div id="canvas2" class="map">
+
+    </div>
+    <button class="efteling-button" onclick="ZoomIn(2)">+</button>
+    <button class="efteling-button" onclick="ZoomOut(2)">-</button>
+
+    <div id="text-end-title" class="disclaimer-title">Loading...</div>
+    <div id="text-end" class="disclaimer-body">Loading...</div>
+    <button submit onclick="submit()" class="submit-button" id="text-send"></button>
 </div>
 
 <script src="./slider.js"></script>

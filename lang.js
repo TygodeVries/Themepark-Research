@@ -52,6 +52,21 @@ const translations = [
             "Bijna elke week",
             "Bijna elke dag"
         ]
+    },
+    {
+        "id": "text-end",
+        "en": "Completely done? Press the button below to submit your results!",
+        "nl": "Helemaal klaar? Druk op het knopje hieronder om je andwoorden te verstuuren!"
+    },
+    {
+        "id": "text-end-title",
+        "en": "Almost There!",
+        "nl": "Bijna daar!"
+    },
+    {
+        "id": "text-send",
+        "en": "Send",
+        "nl": "Verstuur"
     }
 ];
 

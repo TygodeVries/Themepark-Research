@@ -14,5 +14,14 @@ function submit()
     .then(data => console.log("Response from Google Apps Script:", data))
     .catch(error => console.error("Error:", error));
 
-    console.log(GetFavoLocation());
+    const element = document.getElementById("questions");
+    element.remove();
+
+    const flags = document.getElementById("lang-buttons");
+    flags.remove();
+
+    window.scrollTo(0, 0);
+
+    const text = document.getElementById("lang-title");
+    text.innerHTML = "Thank you!<p> Bedankt!"
 }

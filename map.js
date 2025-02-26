@@ -15,7 +15,7 @@ function createSketch(canvasId, bgColor) {
         let startCameraY = 0;
         let startMouseX = 0;
         let startMouseY = 0;
-
+        let button;
         p.setup = function () {
             let canvas = p.createCanvas(800, 600);
             canvas.parent(canvasId);
@@ -25,6 +25,13 @@ function createSketch(canvasId, bgColor) {
             }
             pin = p.loadImage('./images/pin.png');
 
+            button = p.createButton("BOOP!");
+            button.mouseClicked(ZoomIn);
+            button.size(200, 100);
+            button.position(10, 10);
+            button.style("font-family", "Comic Sans MS");
+            button.style("font-size", "48px");
+
             canvas.mouseOver(() => p.mouseOverCanvas = true);
             canvas.mouseOut(() => p.mouseOverCanvas = false);
             canvas.touchStarted(() => {
@@ -32,6 +39,7 @@ function createSketch(canvasId, bgColor) {
                 console.log("Start");
             });
             canvas.touchEnded(() => canvasFocused = false);
+
         };
 
         p.mousePressed = function () {
@@ -61,7 +69,7 @@ function createSketch(canvasId, bgColor) {
 
         p.mouseWheel = function (event) {
             if (p.mouseOverCanvas) {
-                zoom(-event.delta, p.mouseX, p.mouseY);
+                p.zoom(-event.delta, p.mouseX, p.mouseY);
                 event.preventDefault();
             }
         };
@@ -95,7 +103,7 @@ function createSketch(canvasId, bgColor) {
                 p.camera.x += (lastTouchPoint.x - p.touches[0].x) * scaleFactor;
                 p.camera.y += (lastTouchPoint.y - p.touches[0].y) * scaleFactor;
 
-console.log(p.camera);
+                console.log(p.camera);
 
                 lastTouchPoint.x = p.touches[0].x;
                 lastTouchPoint.y = p.touches[0].y;
@@ -103,7 +111,7 @@ console.log(p.camera);
             } else if (p.touches.length === 2) {
                 let newDist = getTouchDist(p.touches);
                 let delta = newDist - touchStartDist;
-                zoom(delta * 5, (p.touches[0].x + p.touches[1].x) / 2, (p.touches[0].y + p.touches[1].y) / 2);
+                p.zoom(delta * 5, (p.touches[0].x + p.touches[1].x) / 2, (p.touches[0].y + p.touches[1].y) / 2);
                 touchStartDist = newDist;
             }
             return false;
@@ -122,15 +130,19 @@ console.log(p.camera);
             return Math.sqrt(dx * dx + dy * dy);
         }
 
-        function zoom(delta, x, y) {
+        p.zoom = function(delta, x, y) {
+            console.log(delta);
+
             let zoomFactor = delta > 0 ? 1.1 : 0.9;
             let newZoom = p.constrain(p.camera.zoom * zoomFactor, 0.2, 1.0);
+            console.log(newZoom);
             
             let mouseXBefore = (x - p.width / 2) / p.camera.zoom + p.camera.x;
             let mouseYBefore = (y - p.height / 2) / p.camera.zoom + p.camera.y;
 
             p.camera.zoom = newZoom;
 
+            console.log(p.camera);
             let mouseXAfter = (x - p.width / 2) / p.camera.zoom + p.camera.x;
             let mouseYAfter = (y - p.height / 2) / p.camera.zoom + p.camera.y;
 
@@ -151,6 +163,7 @@ console.log(p.camera);
             p.translate(p.width / 2, p.height / 2);
             p.scale(p.camera.zoom);
             p.translate(-p.camera.x, -p.camera.y);
+            p.cursor('grab');
             if (img) p.image(img, 0, 0);
             if (p.pin) p.image(pin, p.pin.x - 250, p.pin.y - 250);
             p.pop();
@@ -160,6 +173,20 @@ console.log(p.camera);
 
 let sketch1 = createSketch('canvas1', '#386313');
 let sketch2 = createSketch('canvas2', '#386313');
+
+function ZoomIn(n) {
+    console.log("Zooming In");
+    if(n === 1) {myp5_1.zoom(0.1, 400, 300);}  // Zoom in (positive delta)
+    if(n === 2) {myp5_2.zoom(0.1, 400, 300);}  // Zoom in (positive delta)
+}
+
+function ZoomOut(n) {
+    console.log("Zooming Out");
+    if(n === 1) {myp5_1.zoom(-0.1, 400, 300);} 
+    if(n === 2) {myp5_2.zoom(-0.1, 400, 300);}  
+}
+
+
 
 let myp5_1 = new p5(sketch1);
 let myp5_2 = new p5(sketch2);

@@ -4,6 +4,10 @@
     font-weight: normal;
     font-style: normal;
 }
+html, body {
+    overflow-x: hidden;
+}
+
 
 body {
     font-family: 'Efteling', sans-serif;
@@ -13,7 +17,9 @@ body {
     text-align: center;
     color: white;
     text-shadow: 2px 2px 5px black;
+    overflow-x: hidden;
 }
+
 
 .question {
     font-size: clamp(16px, 5vw, 6vh);
@@ -49,8 +55,8 @@ body {
 }
 
 .lang-btn {
-    width: 100px; /* Adjust size as needed */
-    height: 60px;
+    width: clamp(20px, 20vw, 20vh); /* Adjust size as needed */
+    height: clamp(20px, 13vw, 15vh);
     background-size: cover;
     background-position: center;
     border: none;
@@ -68,7 +74,7 @@ body {
     position: relative; /* Needed for absolute positioning of the pseudo-element */
     margin: 0;
     padding: 0;
-    padding-bottom: 30vh;
+    padding-bottom: clamp(20px, 10vw, 10vh);
 
     color: white;
     text-shadow: 2px 2px 5px black;
@@ -188,4 +194,58 @@ body {
     content: "▼";
     font-size: 18px;
     color: #d4af37;
+}
+
+
+.submit-button {
+    font-family: 'Garamond', serif;
+    font-size: clamp(40px, 5vw, 5vh);
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(180deg, #8B0000, #B22222); /* Deep red gradient */
+    border: 3px solid gold;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+
+    padding-left: clamp(40px, 3vw, 5vh);
+    padding-right: clamp(40px, 3vw, 5vh);
+    
+    margin-bottom: clamp(40px, 10vw, 10vh);
+}
+
+.submit-button:hover {
+    background: linear-gradient(180deg, #B22222, #D2691E); /* Lighter glow */
+    transform: scale(1.08);
+    box-shadow: 0 8px 16px rgba(255, 215, 0, 0.6);
+}
+
+.submit-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 6px rgba(255, 215, 0, 0.6);
+}
+
+/* Magical glow effect */
+.submit-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 10%, transparent 70%);
+    transition: opacity 0.4s, transform 0.4s;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.submit-button:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
 }
