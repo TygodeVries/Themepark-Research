@@ -11,8 +11,8 @@ function createSketch(canvasId, bgColor) {
         p.setup = function () {
             let canvas = p.createCanvas(800, 600);
             canvas.parent(canvasId);
-            img = p.loadImage('/images/efteling_map_cut.jpg');
-            pin = p.loadImage('/images/pin.png');
+            img = p.loadImage('./images/efteling_map_cut.jpg');
+            pin = p.loadImage('./images/pin.png');
 
             canvas.mouseOver(() => p.mouseOverCanvas = true);
             canvas.mouseOut(() => p.mouseOverCanvas = false);
@@ -83,10 +83,26 @@ function createSketch(canvasId, bgColor) {
 }
 
 // Create two independent sketches
-let sketch1 = createSketch('canvas1', 200);
-let sketch2 = createSketch('canvas2', 100);
+let sketch1 = createSketch('canvas1', 0);
+let sketch2 = createSketch('canvas2', 0);
 
 
 // Create two separate p5 instances
 let myp5_1 = new p5(sketch1);
 let myp5_2 = new p5(sketch2);
+
+function GetFavoLocation() {
+    if (myp5_1.pin) {
+        return "x " + myp5_1.pin.x + " y " + myp5_1.pin.y;
+    } else {
+        return "No location selected";
+    }
+}
+
+function GetLeastFavoLocation() {
+    if (myp5_2.pin) {
+        return "x " + myp5_2.pin.x + " y " + myp5_2.pin.y;
+    } else {
+        return "No location selected";
+    }
+}

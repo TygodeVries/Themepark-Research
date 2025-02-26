@@ -11,22 +11,21 @@ const translations = [
     }
 ];
 
+let currentLanguage = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".lang-btn").forEach(button => {
         button.addEventListener("click", function () {
-            let language = this.getAttribute("data-lang"); // Get selected language
-
-            // Remove 'selected' class from all buttons
+            let language = this.getAttribute("data-lang"); 
+            currentLanguage = language;
             document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("selected"));
 
-            // Add 'selected' class to clicked button
             this.classList.add("selected");
 
-            // Update text content for each translated element
             translations.forEach(entry => {
                 let element = document.getElementById(entry.id);
                 if (element) {
-                    element.textContent = entry[language]; // Change text based on language
+                    element.textContent = entry[language]; 
                 }
             });
 
@@ -36,3 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("lang-dutch").click();
 });
+
+function getCurrentLanguage() {
+    return currentLanguage;
+}
