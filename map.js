@@ -1,9 +1,8 @@
-var img;
+var img = null;
 var pin;
 
 function createSketch(canvasId, bgColor) {
     return function (p) {
-        let img;
         p.camera = { x: 2000, y: 2000, zoom: 0.3 };
         p.mouseOverCanvas = false;
         let isDragging = false;
@@ -13,7 +12,11 @@ function createSketch(canvasId, bgColor) {
         p.setup = function () {
             let canvas = p.createCanvas(800, 600);
             canvas.parent(canvasId);
-            img = p.loadImage('./images/efteling_map_cut.jpg');
+            if(img == null)
+            {
+                console.log("Loading map...")
+                img = p.loadImage('./images/efteling_map_cut.jpg');
+            }
             pin = p.loadImage('./images/pin.png');
 
             // Detect if the user is focusing on the canvas
