@@ -25,13 +25,6 @@ function createSketch(canvasId, bgColor) {
             }
             pin = p.loadImage('./images/pin.png');
 
-            button = p.createButton("BOOP!");
-            button.mouseClicked(ZoomIn);
-            button.size(200, 100);
-            button.position(10, 10);
-            button.style("font-family", "Comic Sans MS");
-            button.style("font-size", "48px");
-
             canvas.mouseOver(() => p.mouseOverCanvas = true);
             canvas.mouseOut(() => p.mouseOverCanvas = false);
             canvas.touchStarted(() => {

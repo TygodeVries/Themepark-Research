@@ -18,7 +18,7 @@ function submit()
     element.remove();
 
     const flags = document.getElementById("lang-buttons");
-    flags.remove();
+    flags.innerHTML = "<p>";
 
     window.scrollTo(0, 0);
 
