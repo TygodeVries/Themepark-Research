@@ -1,0 +1,47 @@
+.slider {
+    -webkit-appearance: none;
+    width: 90%;
+    margin-left: 4vh ;
+    margin-right: 4vh ;
+    height: 12px ;
+    border-radius: 6px;
+    background: linear-gradient(to right, #00b466, #00e636, #007c46);
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-goodbad {
+
+    background: linear-gradient(to right, #b40000, #e6c200, #007c46);
+    
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: url('images/fairy-tale-icon.png') no-repeat center / cover;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.slider-label {
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    margin-top: 10px;
+    display: block;
+}

@@ -10,11 +10,15 @@ body {
     border: 0;
     margin: 0;
     padding: 0;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px black;
 }
 
 .question {
-    text-align: center;
     font-size: 6vh;
+    padding-bottom: 2vh;
+    padding-top: 10vh
 }
 
 .lang-title {
@@ -63,7 +67,7 @@ body {
     position: relative; /* Needed for absolute positioning of the pseudo-element */
     margin: 0;
     padding: 0;
-    padding-bottom: 10vh;
+    padding-bottom: 30vh;
 
     color: white;
     text-shadow: 2px 2px 5px black;
@@ -90,4 +94,61 @@ body {
 
 .map {
     text-align: center;
+}
+
+.disclaimer-body {
+    font-size: 4vh;
+    margin-top: 10vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    padding-bottom: 30vh;
+}
+
+.disclaimer-title {
+    font-size: 7vh;
+    padding-top: 10vh
+}
+
+.disclaimer::before {
+    position: relative;
+    height: auto;
+    content: "";
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    
+    background: url('images/Skyline2022.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(2px);
+    
+    z-index: -1;
+ 
+}
+
+.questions {
+    position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+}
+
+.questions::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Ensure full width */
+    height: 100%; /* Ensure full height */
+    
+    background-color: #44687d; /* Corrected hex color */
+    
+    filter: blur(2px);
+    z-index: -1; 
+}
+
+.section {
+    font-size: 10vh;
+    padding-top: 10vh;
 }

@@ -1,5 +1,6 @@
 <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./slider.css">
 </head>
 
 <body>
@@ -8,7 +9,6 @@
 <script src="./map.js"></script>
 <script src="./lang.js"></script>
 <script src="./submit.js"></script>
-
 <div class="language">
     <div class="lang-title">
         <p>Kies je taal</p>
@@ -21,7 +21,26 @@
     </div>
 </div>
 
-<div>
+<div class="disclaimer", id="disclaimer">
+    <div id="text-disclaimer-title" class="disclaimer-title">
+
+    </div>
+
+    <div id="text-disclaimer-body" class="disclaimer-body">
+        
+    </div>
+</div>
+
+<div class="questions">
+    <div id="text-header-you" class="section"></div>
+        <div id="text-question-you-age" class="question">Loading...</div>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" value="15" class="slider" id="eftelingSlider">
+            <span class="slider-label" id="sliderValue">50</span>
+        </div>
+
+
+
     <div id="text-question-map-best" class="question">Loading...</div>
     <div id="canvas1" class="map"></div>
     <div id="text-question-map-worst" class="question">Loading...</div>
@@ -29,3 +48,5 @@
     <input type="text">
     <button submit onclick="submit()">Submit</button>
 </div>
+
+<script src="./slider.js"></script>

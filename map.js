@@ -47,7 +47,7 @@ function createSketch(canvasId, bgColor) {
         p.mouseWheel = function (event) {
             if (p.mouseOverCanvas) {
                 let zoomFactor = -event.delta > 0 ? 1.1 : 0.9;
-                let newZoom = p.constrain(p.camera.zoom * zoomFactor, 0.1, 2.5);
+                let newZoom = p.constrain(p.camera.zoom * zoomFactor, 0.2, 1.0);
 
                 let mouseXBefore = (p.mouseX - p.width / 2) / p.camera.zoom + p.camera.x;
                 let mouseYBefore = (p.mouseY - p.height / 2) / p.camera.zoom + p.camera.y;
@@ -83,8 +83,8 @@ function createSketch(canvasId, bgColor) {
 }
 
 // Create two independent sketches
-let sketch1 = createSketch('canvas1', 0);
-let sketch2 = createSketch('canvas2', 0);
+let sketch1 = createSketch('canvas1', '#386313');
+let sketch2 = createSketch('canvas2', '#386313');
 
 
 // Create two separate p5 instances
