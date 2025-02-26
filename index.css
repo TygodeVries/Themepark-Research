@@ -153,3 +153,39 @@ body {
     font-size: clamp(40px, 7vw, 8vh);;
     padding-top: clamp(40px, 7vw, 8vh);;
 }
+
+@font-face {
+    font-family: 'Efteling';
+    src: url('images/Efteling-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.dropdown {
+    font-family: 'Efteling', sans-serif;
+    font-size: clamp(16px, 2.5vw, 24px);
+    padding: 12px;
+    width: 100%;
+    max-width: 320px;
+    border: 3px solid #d4af37; /* Golden border */
+    border-radius: 12px;
+    background: linear-gradient(to bottom, #f8e4c1, #c69c6d); /* Fantasy parchment */
+    color: #4a2c14; /* Deep brown text */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Glowing effect on hover */
+.dropdown:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    border-color: #ffcc00;
+}
+
+/* Dropdown arrow customization */
+.dropdown:after {
+    content: "▼";
+    font-size: 18px;
+    color: #d4af37;
+}

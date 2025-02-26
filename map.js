@@ -8,6 +8,7 @@ function createSketch(canvasId, bgColor) {
         p.mouseOverCanvas = false;
         let isDragging = false;
         let touchStartDist = 0;
+        let canvasFocused = false; // Track if the canvas is active
 
         p.setup = function () {
             let canvas = p.createCanvas(800, 600);
@@ -15,8 +16,11 @@ function createSketch(canvasId, bgColor) {
             img = p.loadImage('./images/efteling_map_cut.jpg');
             pin = p.loadImage('./images/pin.png');
 
+            // Detect if the user is focusing on the canvas
             canvas.mouseOver(() => p.mouseOverCanvas = true);
             canvas.mouseOut(() => p.mouseOverCanvas = false);
+            canvas.touchStarted(() => canvasFocused = true);
+            canvas.touchEnded(() => canvasFocused = false);
         };
 
         p.mousePressed = function () {
@@ -40,18 +44,21 @@ function createSketch(canvasId, bgColor) {
 
         p.mouseWheel = function (event) {
             if (p.mouseOverCanvas) {
-                zoom(event.delta, p.mouseX, p.mouseY);
+                zoom(-event.delta, p.mouseX, p.mouseY);
                 event.preventDefault();
             }
         };
 
         p.touchStarted = function () {
+            if (!canvasFocused) return; // Ignore if canvas isn't active
             if (p.touches.length === 2) {
                 touchStartDist = getTouchDist(p.touches);
             }
         };
 
         p.touchMoved = function () {
+            if (!canvasFocused) return true; // Allow normal page scrolling
+
             if (p.touches.length === 1) {
                 let scaleFactor = 1 / p.camera.zoom;
                 p.camera.x -= (p.touches[0].movementX || 0) * scaleFactor;
@@ -68,6 +75,7 @@ function createSketch(canvasId, bgColor) {
         p.touchEnded = function () {
             if (p.touches.length === 0) {
                 touchStartDist = 0;
+                canvasFocused = false;
             }
         };
 
