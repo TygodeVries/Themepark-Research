@@ -16,13 +16,13 @@ body {
 }
 
 .question {
-    font-size: 6vh;
+    font-size: clamp(16px, 5vw, 6vh);
     padding-bottom: 2vh;
     padding-top: 10vh
 }
 
 .lang-title {
-    font-size: 300%;  /* Reduce font size */
+    font-size: clamp(40px, 7vw, 8vh);
     line-height: 0.1;  /* Keep enough space between lines */
     text-align: center;
     width: 100%;
@@ -31,6 +31,7 @@ body {
     justify-content: center;
     transform: translateY(200%);
 }
+
 #lang-english {
     background-image: url('https://flagcdn.com/w320/gb.png');
 }
@@ -97,16 +98,16 @@ body {
 }
 
 .disclaimer-body {
-    font-size: 4vh;
-    margin-top: 10vh;
-    margin-left: 10vh;
-    margin-right: 10vh;
-    padding-bottom: 30vh;
+    margin-top: clamp(40px, 7vw, 8vh);
+    margin-left: clamp(16px, 4vw, 6vh);
+    margin-right: clamp(16px, 4vw, 6vh);
+    padding-bottom: clamp(40px, 7vw, 8vh);;
+    font-size: clamp(20px, 4vw, 5vh);
 }
 
 .disclaimer-title {
-    font-size: 7vh;
-    padding-top: 10vh
+    font-size: clamp(40px, 7vw, 8vh);;
+    padding-top: clamp(16px, 10vw, 40vh);
 }
 
 .disclaimer::before {
@@ -149,6 +150,6 @@ body {
 }
 
 .section {
-    font-size: 10vh;
-    padding-top: 10vh;
+    font-size: clamp(40px, 7vw, 8vh);;
+    padding-top: clamp(40px, 7vw, 8vh);;
 }
