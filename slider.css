@@ -25,12 +25,12 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 30px;
-    height: 30px;
-    background: url('images/fairy-tale-icon.png') no-repeat center / cover;
+    width: 100px;
+    height: 100px;
+    background: url('images/hand.png') no-repeat center / cover;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
     transition: transform 0.2s ease-in-out;
 }
 
