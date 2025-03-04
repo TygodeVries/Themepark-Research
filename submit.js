@@ -15,7 +15,6 @@ function submit()
         good_important: getField("good-important")
     });
 
-    debugger;
 
     console.log(str);
 
