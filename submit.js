@@ -1,14 +1,29 @@
 function submit()
 {
-    fetch("https://script.google.com/macros/s/AKfycbxrmDKueG5rjUq_yRX2kVsWNRQbM8cXDCRu_3dC9vWjRxRLVBsFjv_jZOfvD7aOO_tyuw/exec", {
+    str = JSON.stringify({
+        lang: getCurrentLanguage(), 
+        age: getField("eftelingSlider"),
+        visit_frequency: getField("visit-frequency"),
+        favorite: GetFavoLocation(),
+        favorite_why: getField("good-why"),
+        leastFavorite: GetLeastFavoLocation(),
+        leastFavorite_why: getField("bad-why"),
+        first_to_mind: getField("first-to-mind"),
+        story_element: getField("story-element"),
+        adict: getField("text-does-game"),
+        game_type: getField("game-type"),
+        good_important: getField("good-important")
+    });
+
+    debugger;
+
+    console.log(str);
+
+    fetch("https://script.google.com/macros/s/AKfycbz00nBU8k8wFw75Jo38JrsEjq4uphfpNrViNgamaBJz51olI18UVccxFecUAIpQ8k0_/exec", {
         redirect: "follow",
         method: "POST",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({
-            lang: getCurrentLanguage(), 
-            favorite: GetFavoLocation(),
-            leastFavorite: GetLeastFavoLocation()
-        })
+        body: str
     })
     .then(response => response.text())
     .then(data => console.log("Response from Google Apps Script:", data))
@@ -24,4 +39,8 @@ function submit()
 
     const text = document.getElementById("lang-title");
     text.innerHTML = "Thank you!<p> Bedankt!"
+}
+function getField(a)
+{
+    return document.getElementById(a).value;
 }
