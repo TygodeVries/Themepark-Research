@@ -56,7 +56,7 @@ const translations = [
     {
         "id": "text-end",
         "en": "Completely done? Press the button below to submit your results!",
-        "nl": "Helemaal klaar? Druk op het knopje hieronder om je andwoorden te verstuuren!"
+        "nl": "Helemaal klaar? Druk op het knopje hieronder om je antwoorden te verstuuren!"
     },
     {
         "id": "text-end-title",
@@ -95,8 +95,8 @@ const translations = [
     },
     {
         "id": "text-header-game",
-        "en": "Some questions about video games",
-        "nl": "Wat vragen over computer spelletjes"
+        "en": "Some questions about videogames",
+        "nl": "Wat vragen over computerspelletjes"
     },
     {
         "id": "text-does-game",
@@ -119,18 +119,18 @@ const translations = [
     },
     {
         "id": "text-question-game-freq",
-        "en": "How often do you play video games?",
-        "nl": "Hoe vaak speel jij video spelletjes?"
+        "en": "How often do you play videogames?",
+        "nl": "Hoe vaak speel jij computerspelletjes?"
     },
     {
         "id": "text-question-game-type",
-        "en": "What type of video games do you play?",
-        "nl": "Wat voor video spelletjes speel je?"
+        "en": "What type of videogames do you play?",
+        "nl": "Wat voor computerspelletjes speel je?"
     },
     {
         "id": "text-question-game-important",
-        "en": "What do you find the most important/enjoyable in video games?",
-        "nl": "Wat vind je het belangerijkste / leukste in video spelletjes?"
+        "en": "What do you find the most important/enjoyable in videogames?",
+        "nl": "Wat vind je het belangerijkste / leukste in computerspelletjes?"
     }
 ];
 
