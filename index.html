@@ -33,20 +33,24 @@
 </div>
 
 <div class="questions" id="questions">
-    <div id="text-header-you" class="section"></div>
-        <div id="text-question-you-age" class="question">Loading...</div>
-        <div class="slider-container">
-            <input type="range" min="0" max="100" value="15" class="slider" id="eftelingSlider">
-            <span class="slider-label" id="sliderValue">15</span>
-        </div>
+    <!--A little about you-->
+    <div id="text-header-you" class="section"></div> 
+    
+    <!--Age question-->
+    <div id="text-question-you-age" class="question">Loading...</div>
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="15" class="slider" id="eftelingSlider">
+        <span class="slider-label" id="sliderValue">15</span>
+    </div>
 
-        <div id="text-question-you-frequency" class="question">Loading...</div>
-        <label for="visit-frequency" class="question" id="text-question-you-frequency"></label>
-        <select id="visit-frequency" class="dropdown">
-        </select>
-        
+    <!-- Efteling Header -->
+    <div id="text-header-efteling" class="section"></div>
 
-        <div id="text-header-efteling" class="section"></div>
+    <!-- How often you visit -->
+    <div id="text-question-you-frequency" class="question">Loading...</div>
+    <label for="visit-frequency" class="question" id="text-question-you-frequency"></label>
+    <select id="visit-frequency" class="dropdown"></select>
+    
     <div id="text-question-map-best" class="question">Loading...</div>
     <div id="canvas1" class="map">
     </div>
@@ -81,6 +85,24 @@
         <input type="text" id="first-to-mind" placeholder= "Schrijf hier / Type here" name="fname"><br><br>
     </div>
 
+
+     <!-- Games -->
+     <div id="text-header-game" class="section"></div>
+
+
+     <div id="text-question-game-freq" class="question">Loading...</div>
+     <label for="text-does-game" class="question" id="text-question-you-frequency"></label>
+     <select id="text-does-game" class="dropdown"></select>
+
+     <div id="text-question-game-type" class="question">Loading...</div>
+     <div>
+        <input type="text" id="game-type" placeholder= "Schrijf hier / Type here" name="fname"><br><br>
+    </div>
+     <div id="text-question-game-important" class="question">Loading...</div>
+     <div>
+        <input type="text" id="good-important" placeholder= "Schrijf hier / Type here" name="fname"><br><br>
+    </div>
+     <!-- end -->
     <div id="text-end-title" class="disclaimer-title">Loading...</div>
     <div id="text-end" class="disclaimer-body">Loading...</div>
     <button submit onclick="submit()" class="submit-button" id="text-send"></button>

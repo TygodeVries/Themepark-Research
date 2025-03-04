@@ -92,6 +92,45 @@ const translations = [
         "id": "text-story-element",
         "en": "Which element or story from the park is your favorite?",
         "nl": "Welk element of verhaal van het park is je favoriet?"
+    },
+    {
+        "id": "text-header-game",
+        "en": "Some questions about video games",
+        "nl": "Wat vragen over computer spelletjes"
+    },
+    {
+        "id": "text-does-game",
+        "en": [
+            "Never",
+            "A few times a year",
+            "A few times a month",
+            "About onces a week",
+            "A few times a week",
+            "Almost every day"
+        ],
+        "nl": [
+            "Nooit",
+            "Een paar keer per jaar",
+            "Een paar keer per maand",
+            "Bijna elke week",
+            "Een paar keer per week",
+            "Bijna elke dag"
+        ]
+    },
+    {
+        "id": "text-question-game-freq",
+        "en": "How often do you play video games?",
+        "nl": "Hoe vaak speel jij video spelletjes?"
+    },
+    {
+        "id": "text-question-game-type",
+        "en": "What type of video games do you play?",
+        "nl": "Wat voor video spelletjes speel je?"
+    },
+    {
+        "id": "text-question-game-important",
+        "en": "What do you find the most important/enjoyable in video games?",
+        "nl": "Wat vind je het belangerijkste / leukste in video spelletjes?"
     }
 ];
 
