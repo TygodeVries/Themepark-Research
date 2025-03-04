@@ -67,6 +67,31 @@ const translations = [
         "id": "text-send",
         "en": "Send",
         "nl": "Verstuur"
+    },
+    {
+        "id": "text-why",
+        "en": "Why did you choose this?",
+        "nl": "Waarom koos je hier voor?"
+    },
+    {
+        "id": "text-why2",
+        "en": "Why did you choose this?",
+        "nl": "Waarom koos je hier voor?"
+    },
+    {
+        "id": "text-first-to-mind",
+        "en": "What is the first that comes to mind when talking about Efteling?",
+        "nl": "Wat komt er als eerst in je op als iemand het over de Efteling heeft?"
+    },
+    {
+        "id": "text-header-efteling",
+        "en": "Some questions about Efteling:",
+        "nl": "Wat vragen over de Efteling:"
+    },
+    {
+        "id": "text-story-element",
+        "en": "Which element or story from the park is your favorite?",
+        "nl": "Welk element of verhaal van het park is je favoriet?"
     }
 ];
 

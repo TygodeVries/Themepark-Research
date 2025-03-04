@@ -9,6 +9,15 @@ html, body {
 }
 
 
+input[type=text] {
+    width: 90vh;
+    padding: 2vh 1vh;
+    margin: 1vh 10vh;
+    box-sizing: border-box;
+    background-color: #f2cb65;
+    border: none;
+}
+
 body {
     font-family: 'Efteling', sans-serif;
     border: 0;
