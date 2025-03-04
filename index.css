@@ -10,7 +10,7 @@ html, body {
 
 
 input[type=text] {
-    width: 90vh;
+    width: clamp(40px, 30vw, 100vh);;
     padding: 2vh 1vh;
     margin: 1vh 10vh;
     box-sizing: border-box;
