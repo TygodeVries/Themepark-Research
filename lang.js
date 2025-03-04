@@ -56,7 +56,7 @@ const translations = [
     {
         "id": "text-end",
         "en": "Completely done? Press the button below to submit your results!",
-        "nl": "Helemaal klaar? Druk op het knopje hieronder om je antwoorden te verstuuren!"
+        "nl": "Helemaal klaar? Druk op het knopje hieronder om je antwoorden te versturen!"
     },
     {
         "id": "text-end-title",
