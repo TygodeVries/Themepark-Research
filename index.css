@@ -9,10 +9,10 @@ html, body {
 }
 
 
-input[type=text] {
-    width: clamp(40px, 30vw, 100vh);;
+input[type="text"] {
+    width: calc(100% - 4vh); /* Make it as wide as possible minus the margin */
     padding: 2vh 1vh;
-    margin: 1vh 10vh;
+    margin: 2vh; /* Add margin around the input */
     box-sizing: border-box;
     background-color: #f2cb65;
     border: none;
